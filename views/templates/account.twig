@@ -1,0 +1,32 @@
+<div class="main-User">
+
+
+        <div class="left-Column">
+            <div>Моя страница</div>
+            <div>Мессенджер</div>
+            <div>Друзья</div>
+            <div>Фотографии</div>
+            <div>Настройки</div>
+        </div>
+
+
+        <div class="account-User">
+            <div>обложка</div>
+            <div>
+                <img src="" alt="">
+                <div>{{ user['firstName']}}</div>
+                <div>{{ user['lastName']}}</div>
+                <div>{% if status %}
+                    {{status}}
+                        {% else %} 
+                        {{'статус не указан'}}
+                        {% endif %}</div>
+            </div>
+        </div>
+
+        
+        <div>foto</div>
+        
+
+
+    </div>
