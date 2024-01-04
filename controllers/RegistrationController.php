@@ -8,6 +8,7 @@ include_once 'models/RegistrationModel.php';
 function registrationAction(){
 
     $status = 0;
+    $userId = 0;
 
     if($_POST['userNameReg'] && $_POST['firstName'] && $_POST['lastName'] && $_POST['email'] && $_POST['password']){
         $userName = $_POST['userNameReg'];
@@ -19,10 +20,12 @@ function registrationAction(){
 
 
         $status = userRegistration($userName, $firstName, $lastName, $email, $hashPassword);
+        $userId = getId($userName);
 
         if($status){
             $resData['success'] = 1;
             $resData['message'] = 'Регистрация прошла успешна!';
+            $resData['userId'] = $userId;
             echo json_encode($resData);
             return;
         } else {
@@ -31,11 +34,8 @@ function registrationAction(){
             echo json_encode($resData);
             return;
         }
-        
-            session_start();
-            $_SESSION["username"] = $username;
-            $_SESSION["status"] = $login;
-            $_SESSION["id"] = $uid;
+
+
     } else {
         $resData['success'] = 0;
         $resData['message'] = 'Для успешной регистрации заполните все поля!';

@@ -81,3 +81,53 @@ input{
     font-weight: 400;
     color: white;
 }
+
+.main-User{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 500px;
+    width: 100%;
+}
+
+
+.left-Column{
+    width: 200px;
+    height: 100%;
+    grid-row: span 2;
+    background-color: #00BFFF;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.left{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.account-User{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 25px 25px 25px 25px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-size: 20px;
+}
+ 
+.fotoUser{
+    grid-row: span 4;
+    margin: auto;
+    border: 1px solid black;
+    padding: 10px;
+
+}
+
+
+.foto{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}

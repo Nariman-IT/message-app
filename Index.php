@@ -2,11 +2,10 @@
 
 // ГЛАВНАЯ СТРАНИЦА
 
-// session_start();
-//     if(isset($_SESSION["username"])){
-//         header("Location: feed.php");
-//         exit;
-//     }
+if(!isset($_SESSION['userId'])){
+    session_start();
+}
+
 
 
 
@@ -23,6 +22,7 @@ include_once 'config/config.php';
 // ОПРЕДЕЛЯЕМ С КАКИМ КОНТРОЛЕРОМ РАБОТАЕМ
 $controllerName = isset($_GET["controller"]) ? ucfirst($_GET["controller"]) : 'index';
 $actionName = isset($_GET["action"]) ? $_GET["action"] : 'index';
+
 
 
 function d($value = null, $die = 1){

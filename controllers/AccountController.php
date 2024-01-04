@@ -1,20 +1,30 @@
 <?php
 
+//ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
+
 // Подключение модели
 include_once 'models/AccountModel.php';
 
-
-
+if(isset($_GET['userId'])){
+$_SESSION['userId'] = $_GET['userId'];
+}
 
 function accountAction($twig){
 
     // Получаю ID пользователя
-    $userId = $_GET['userId'];
-    $user = userInformation($userId);
-    $status = 'привет это мой первый статус';
+    if(isset($_GET['userId'])){
+        $userId = $_GET['userId'];
+        $user = userInformation($userId);
+    }
+    
+    if(isset($_SESSION['userId'])){
+        $userId = $_SESSION['userId'];
+        $user = userInformation($userId);
+    }
+
 
     $twig->addGlobal('user', $user);
-    $twig->addGlobal('status', $status);
+    
 
     echo $twig->render("header.twig");
     echo $twig->render("account.twig");
